@@ -32,6 +32,7 @@ public class UpsetArray {
         int length = this.nums.length;
         Map<Double,Integer> treeMap = new TreeMap<>();
         int[] result = new int[length];
+        //自定义映射规则，用数组下标对随机数取余，余数作为k,下标作为value,按k排序，排序后的value即为新数组的下标
         double rand = Math.random();
         for(int i = 0 ;i<length; i++) {
             double d = (i+100) % rand;
@@ -41,7 +42,8 @@ public class UpsetArray {
         int i = 0;
         for (Double d:treeMap.keySet()) {
             result[i] = nums[treeMap.get(d)];
-            System.out.println();
+            System.out.println(treeMap.get(d));
+            i++;
         }
 
         return result;
